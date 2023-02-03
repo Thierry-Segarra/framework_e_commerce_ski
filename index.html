@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title> YamakaSki</title>
+        <link rel="stylesheet" id="css" href="Style.css">
+    </head>
+    <body>
+        <header>
+            <a href="">
+                <img src="Images/logo.png" alt="" class="logo">
+            </a>
+            <form action="" class="recherche_form">
+                <input type="search" placeholder="Recherche" class="recherche">
+                <button type="submit" class="bouton_submit"><img src="Images/loupe.png" alt="recherche" class="image_submit"></button>
+            </form>
+            
+            <div class="bouton_header">
+                <a href="" class="bouton" >
+                    <img src="Images/logo_categorie.png" alt="logo_catehgorie" class="image_logo">
+                    <span>CATEGORIE</span>
+                </a>
+    
+                <a href="" class="bouton">
+                    <img src="Images/logo_compte.png" alt="logo_compte" class="image_logo">
+                    <span>COMPTE</span>
+                </a>
+    
+                <a href="" class="bouton" class="image_logo">
+                    <img src="Images/logo_panier.png" alt="logo_panier" class="image_logo"><br>
+                    <span>PANIER</span>
+                </a>
+            </div>
+            
+        </header>
+        <div class="boddy">
+
+            <div class="slide" id="slide">
+                <button onclick="mouveSlide(-1)" class="slide_mouve"><</button>
+                <div class="nb_slide" id="nb_slide">
+                </div>
+                <button onclick="mouveSlide(1)" class="slide_mouve">></button>
+            </div>
+
+            <div class="categorie">
+                <a href="" class="categorie_select">
+                    <img src="Images/ski.png" alt="ski" class="image_categorie_select">
+                </a>
+                <a href="" class="categorie_select">
+                    <img src="Images/baton.png" alt="ski" class="image_categorie_select">
+                </a>
+                <a href="" class="categorie_select">
+                    <img src="Images/chaussure.png" alt="ski" class="image_categorie_select">
+                </a>
+            </div>
+            <div class="pack">
+                <a href="" class="pack_select">
+                    <p>Pack Randonnée</p>
+                </a>
+                <a href="" class="pack_select">
+                    <p>Pack Ski</p>
+                </a>
+                <a href="" class="pack_select">
+                    <p>Pack SnowBoard</p>
+                </a>
+
+            </div>
+
+        </div>
+        <footer>
+            <div>
+                <h2>Qui somme-nous ?</h2>
+                <div class="description_footer">
+                    <a href="">Notre équipe</a>
+                    <a href="">Notre projet</a>
+                    <br><br>
+                </div>
+                
+            </div>
+            <div>
+                <h2>Nous contacter</h2>
+                <div class="description_footer">
+                    <a href="">Adresse</a>
+                    <a href="">Mail</a>
+                    <a href="">Téléphone</a>
+                    <br><br>
+                </div>
+                
+            </div>
+            <div>
+                <h2>Nos réseaux</h2>
+                <div class="description_footer">
+                    <a href="">Instagram</a>
+                    <a href="">Facebook</a>
+                    <a href="">Tiktok</a>
+                    <br><br>
+                </div>
+                
+            </div>
+
+        </footer>
+    </body>
+    <script>
+        
+        var slideTable = [];
+        slideTable.push("Images/slide/1.png","Images/slide/2.png");
+
+        var slide_nb = 0;
+       
+
+        function slide() {
+            document.getElementById('nb_slide').innerHTML = "";
+            
+            for (let i = 0; i < slideTable.length; i++) {
+                document.getElementById('nb_slide').innerHTML += '<span id="image_slide_'+i+'"></span>';   
+                if (slide_nb == i ) {
+                    document.getElementById('slide').style.backgroundImage="url('"+slideTable[i]+"')";
+                    document.getElementById('image_slide_'+i).style.backgroundColor = "white";
+                }        
+            }
+
+            
+        }
+        slide();
+
+        function mouveSlide(mouve) {
+            slide_nb = slide_nb + mouve
+            if (slide_nb < 0) {
+                slide_nb = slideTable.length-1
+            }
+            if (slide_nb > slideTable.length-1) {
+                slide_nb = 0
+            }
+
+            slide()
+        }
+
+    </script>
+</html>
